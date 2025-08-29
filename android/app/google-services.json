@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "102939210416",
+    "firebase_url": "https://safe-road-4ccbb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "safe-road-4ccbb",
+    "storage_bucket": "safe-road-4ccbb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102939210416:android:a6727b0f00b77276a40175",
+        "android_client_info": {
+          "package_name": "com.example.safe_road"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3ZedNRHh2h3zBxN6_yI-o6Q_0uzgG35w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
