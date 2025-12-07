@@ -1,50 +1,53 @@
 plugins {
     id "com.android.application"
+    // START: FlutterFire Configuration
+    id 'com.google.gms.google-services'
+    // END: FlutterFire Configuration
     id "kotlin-android"
-    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id "dev.flutter.flutter-gradle-plugin"
+
 }
+
 android {
-    namespace = "com.example.safe_road"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    namespace "com.example.safe_road"
+    compileSdkVersion 35
 
     defaultConfig {
         applicationId "com.example.safe_road"
-        minSdkVersion 23  // ✅ Ensure this is correctly set
-        targetSdkVersion 34
-        versionCode flutter.versionCode
-        versionName flutter.versionName
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        minSdkVersion 23
+        targetSdkVersion 35
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
         release {
+            // For now, use debug signing config for simplicity
+            signingConfig signingConfigs.debug
+            // Enable shrinking & optimization for release
+            minifyEnabled false
+            shrinkResources false
+        }
+        debug {
             signingConfig signingConfigs.debug
         }
     }
-}
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
 
 flutter {
-    source = "../.."
-}
-dependencies {
-    implementation platform('com.google.firebase:firebase-bom:33.9.0') // Firebase BOM for version management
-    implementation 'com.google.firebase:firebase-auth' // Firebase Authentication
-    implementation 'com.google.firebase:firebase-firestore' // Firestore Database
-    implementation 'com.google.firebase:firebase-database' // Realtime Database
-    implementation 'com.google.firebase:firebase-storage' // Firebase Storage
-    implementation 'com.google.firebase:firebase-messaging' // Firebase Cloud Messaging
-    implementation 'com.google.firebase:firebase-analytics' // Firebase Analytics
+    source '../..'
 }
 
-apply plugin: 'com.google.gms.google-services'
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+
+}

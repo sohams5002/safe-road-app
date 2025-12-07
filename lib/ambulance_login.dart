@@ -1,66 +1,71 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-// Import your external pages
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:geolocator/geolocator.dart';
+
 import 'alerts.dart';
 import 'sendpatientdetails.dart';
+import 'nearby_hospitals.dart';
 
-void main() => runApp(MaterialApp(home: AmbulanceLoginPage()));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool loggedIn = prefs.getBool("ambulance_logged_in") ?? false;
+
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: loggedIn ? AmbulanceHomePage() : AmbulanceLoginPage(),
+  ));
+}
+
+// ------------------------------------------------------
+// 🚑 LOGIN PAGE (HARDCODED LOGIN)
+// ------------------------------------------------------
 class AmbulanceLoginPage extends StatefulWidget {
   @override
   _AmbulanceLoginPageState createState() => _AmbulanceLoginPageState();
 }
 
 class _AmbulanceLoginPageState extends State<AmbulanceLoginPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  bool _isLoggedIn = false;
+  final TextEditingController _userController = TextEditingController();
+  final TextEditingController _passController = TextEditingController();
 
-  // Hardcoded username and password
-  final String _validUsername = 'ambulance@hospital.com';
-  final String _validPassword = 'ambulance123';
+  // Hardcoded login credentials
+  final Map<String, String> loginData = {
+    "1001": "ambu123",
+    "1002": "ambu456",
+    "1003": "ambu789",
+  };
 
-  void _login() {
-    if (_emailController.text == _validUsername && _passwordController.text == _validPassword) {
-      setState(() {
-        _isLoggedIn = true;
-      });
+  Future<void> login() async {
+    String user = _userController.text.trim();
+    String pass = _passController.text.trim();
+
+    if (loginData.containsKey(user) && loginData[user] == pass) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setBool("ambulance_logged_in", true);
+      await prefs.setString("ambulance_userid", user);
+
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => AmbulanceHomePage()),
+        MaterialPageRoute(builder: (_) => AmbulanceHomePage()),
       );
     } else {
-      _showErrorDialog();
-    }
-  }
-
-  void _logout() {
-    setState(() {
-      _isLoggedIn = false;
-    });
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => AmbulanceLoginPage()),
-    );
-  }
-
-  void _showErrorDialog() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
           title: Text("Login Failed"),
-          content: Text("Invalid username or password."),
-          actions: <Widget>[
+          content: Text("Invalid ID or Password."),
+          actions: [
             TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              onPressed: () => Navigator.pop(context),
               child: Text("OK"),
-            ),
+            )
           ],
-        );
-      },
-    );
+        ),
+      );
+    }
   }
 
   @override
@@ -77,51 +82,41 @@ class _AmbulanceLoginPageState extends State<AmbulanceLoginPage> {
               ),
             ),
           ),
-          Positioned(
-            top: -50,
-            right: -50,
-            child: Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.2),
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.local_hospital, size: 80, color: Colors.white),
-                  SizedBox(height: 20),
+                  Icon(Icons.local_hospital, size: 90, color: Colors.white),
+                  SizedBox(height: 30),
                   Text("Ambulance Login",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold)),
                   SizedBox(height: 40),
-                  _buildTextField("Email", _emailController),
+
+                  _field("User ID", _userController),
                   SizedBox(height: 20),
-                  _buildTextField("Password", _passwordController, obscureText: true),
+                  _field("Password", _passController, obscure: true),
+
                   SizedBox(height: 30),
                   ElevatedButton(
-                    onPressed: _login,
+                    onPressed: login,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 15),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                          borderRadius: BorderRadius.circular(30)),
                     ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(color: Colors.redAccent, fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
+                    child: Text("Login",
+                        style: TextStyle(
+                          color: Colors.redAccent,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        )),
                   ),
                 ],
               ),
@@ -132,92 +127,127 @@ class _AmbulanceLoginPageState extends State<AmbulanceLoginPage> {
     );
   }
 
-  Widget _buildTextField(String hint, TextEditingController controller, {bool obscureText = false}) {
+  Widget _field(String label, TextEditingController controller,
+      {bool obscure = false}) {
     return TextField(
       controller: controller,
-      obscureText: obscureText,
+      obscureText: obscure,
       decoration: InputDecoration(
-        labelText: hint,
         filled: true,
+        labelText: label,
         fillColor: Colors.white,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
       ),
     );
   }
 }
 
+// ------------------------------------------------------
+// 🚑 HOME PAGE
+// ------------------------------------------------------
 class AmbulanceHomePage extends StatelessWidget {
+  Future<void> _openNearbyHospitals(BuildContext context) async {
+    bool enabled = await Geolocator.isLocationServiceEnabled();
+    if (!enabled) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Enable GPS first")));
+      return;
+    }
+
+    LocationPermission perm = await Geolocator.requestPermission();
+    if (perm == LocationPermission.denied ||
+        perm == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Location permission denied")));
+      return;
+    }
+
+    Position pos = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (_) => NearbyHospitalPage(
+            userLat: pos.latitude,
+            userLon: pos.longitude,
+            userId: "ambulance_user",
+          )),
+    );
+  }
+
+  Future<void> logout(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool("ambulance_logged_in", false);
+
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (_) => AmbulanceLoginPage()),
+          (_) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Ambulance Dashboard')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Welcome Ambulance",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 30),
-            _buildCard(context, "Alerts", Icons.notification_important, AlertsPage()),
-            SizedBox(height: 20),
-            _buildCard(context, "Send Patient Details", Icons.medical_services, SendPatientDetailsPage()),
-            SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => AmbulanceLoginPage()),
-                );
-              },
-              child: Text('Logout'),
-            ),
-          ],
+    return WillPopScope(
+      onWillPop: () async => false, // block back button
+      child: Scaffold(
+        appBar: AppBar(title: Text("Ambulance Dashboard")),
+        body: Padding(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            children: [
+              _card(context, "Alerts", Icons.notifications, AlertsPage()),
+              SizedBox(height: 20),
+              _card(context, "Send Patient Details", Icons.medical_services,
+                  SendPatientDetailsPage()),
+              SizedBox(height: 20),
+
+              GestureDetector(
+                onTap: () => _openNearbyHospitals(context),
+                child: _cardUI("Nearby Hospitals", Icons.local_hospital),
+              ),
+
+              Spacer(),
+              ElevatedButton(
+                onPressed: () => logout(context),
+                child: Text("Logout"),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildCard(BuildContext context, String title, IconData icon, Widget page) {
+  Widget _card(BuildContext ctx, String title, IconData icon, Widget page) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => page),
-        );
-      },
-      child: Card(
-        elevation: 5,
-        shape: RoundedRectangleBorder(
+      onTap: () =>
+          Navigator.push(ctx, MaterialPageRoute(builder: (_) => page)),
+      child: _cardUI(title, icon),
+    );
+  }
+
+  Widget _cardUI(String title, IconData icon) {
+    return Card(
+      elevation: 5,
+      child: Container(
+        padding: EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          gradient:
+          LinearGradient(colors: [Colors.redAccent, Colors.orange]),
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Container(
-          padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            gradient: LinearGradient(
-              colors: [Colors.redAccent, Colors.orange],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-          child: Row(
-            children: [
-              Icon(icon, size: 50, color: Colors.white),
-              SizedBox(width: 20),
-              Text(
-                title,
+        child: Row(
+          children: [
+            Icon(icon, size: 50, color: Colors.white),
+            SizedBox(width: 20),
+            Text(title,
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
-          ),
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold)),
+          ],
         ),
       ),
     );
