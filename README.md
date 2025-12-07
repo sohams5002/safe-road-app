@@ -80,15 +80,11 @@ The alert is forwarded to Police + Nearby Ambulance + Hospitals.
 User gets a 10-second countdown to cancel false SOS.
 
 ## 📸 App Screenshots :
-![WhatsApp Image 2025-12-07 at 09 51 00_d4d71135](https://github.com/user-attachments/assets/e93ddc5f-d3a8-40f9-aca7-e250f079088b)
-![WhatsApp Image 2025-12-07 at 09 51 00_e91503f3](https://github.com/user-attachments![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d]
+![WhatsApp Image 2025-12-07 at 09 51 00_d4d71135](https://github.com/user-attachments/assets/e93ddc5f-d3a8-40f9-aca7-e250f079088b) ![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/f3cacad2-c138-48fe-abc7-04feff5006e2)
 
-![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/f3cacad2-c138-48fe-abc7-04feff5006e2)
+![WhatsApp Image 2025-12-07 at 09 51 02_9dc183b6](https://github.com/user-attachments/assets/fe75a116-b2b7-47c1-8305-bfb7e4ac4d38) ![WhatsApp Image 2025-12-07 at 09 51 02_2caf9377](https://github.com/user-attachments/assets/afaf10b8-71a5-4d35-90e3-30ae05884c62)
+![WhatsApp Image 2025-12-07 at 09 51 02_8c03de2c](https://github.com/user-attachments/assets/0d3b2efc-3030-45db-9a0f-fc84540bff2a) ![WhatsApp Image 2025-12-07 at 09 51 03_baba867d](https://github.com/user-attachments/assets/d2d88789-64ed-4232-93ab-1d4f019bee94)
 
-![WhatsApp Image 2025-12-07 at 09 51 02_9dc183b6](https://github.com/user-attachments/assets/fe75a116-b2b7-47c1-8305-bfb7e4ac4d38)
-![WhatsApp Image 2025-12-07 at 09 51 02_2caf9377](https://github.com/user-attachments/assets/afaf10b8-71a5-4d35-90e3-30ae05884c62)
-![WhatsApp Image 2025-12-07 at 09 51 02_8c03de2c](https://github.com/user-attachments/assets/0d3b2efc-3030-45db-9a0f-fc84540bff2a)
-![WhatsApp Image 2025-12-07 at 09 51 03_baba867d](https://github.com/user-attachments/assets/d2d88789-64ed-4232-93ab-1d4f019bee94)
 ![WhatsApp Image 2025-12-07 at 09 51 03_f1979add](https://github.com/user-attachments/assets/4d86ec0b-01be-4cc7-a810-7e75b4287951)
 
 ## Tech Stack
