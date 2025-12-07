@@ -81,8 +81,8 @@ User gets a 10-second countdown to cancel false SOS.
 
 ## 📸 App Screenshots :
 ![WhatsApp Image 2025-12-07 at 09 51 00_d4d71135](https://github.com/user-attachments/assets/e93ddc5f-d3a8-40f9-aca7-e250f079088b)
-![WhatsApp Image 2025-12-07 at 09 51 00_e91503f3](https://github.com/user-attachments![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/c119ce1b-a8f2-4351-8201-e3808f8ad068)
-/assets/70fc73cb-c813-49b0-89e7-0127b36c23c3)
+![WhatsApp Image 2025-12-07 at 09 51 00_e91503f3](https://github.com/user-attachments![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d]
+
 ![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/f3cacad2-c138-48fe-abc7-04feff5006e2)
 
 ![WhatsApp Image 2025-12-07 at 09 51 02_9dc183b6](https://github.com/user-attachments/assets/fe75a116-b2b7-47c1-8305-bfb7e4ac4d38)
