@@ -80,15 +80,15 @@ The alert is forwarded to Police + Nearby Ambulance + Hospitals.
 User gets a 10-second countdown to cancel false SOS.
 
 ## 📸 App Screenshots :
-![WhatsApp Image 2025-12-07 at 09 51 00_d4d71135](https://github.com/user-attachments/assets/3c97c15e-b04a-4d87-9efe-64464512b69c)
-![WhatsApp Image 2025-12-07 at 09 51 00_e91503f3](https://github.com/user-attac![WhatsApp Image 2025-12-07 at 09 51 01_4db50f62](https://github.com/user-attachments/assets/7b437a65-dd61-4f15-9f2a-fe37709ae0f1)
-hments/asse![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/6b816330-16dc-4925-a96b-9a00827c2275)
-ts/eb![WhatsApp Image 2025-12-07 at 09 51 02_9dc183b6](https://github.com/user-attachments/assets/a4a101be-36a2-4d32-bb39-a4126f30dfe0)
-5cdc7a-![WhatsApp Image 2025-12-07 at 09 51 02_2caf9377](https://github.com/user-attachments/assets/24d181b6-d9ae-4962-bb40-ea73f87f876f)
-0179-48![WhatsApp Image 2025-12-07 at 09 51 03_baba867d](https://github.com/user-attachments/assets/685723de-fb73-4f9a-a686-888aa4591a33)
-ed-b40e-4518de9241c7)![WhatsApp Image 2025-12-07 at 09 51 02_8c03de2c](https://github.com/user-attachments/assets/b5b46f8e-eb26-4bca-8b35-f6a934c8fd37)
-![WhatsApp Image 2025-12-07 at 09 51 03_baba867d](https://github.com/user-attachments/assets/8cdf39db-6502-40cf-a8de-c779c523082c)
-![WhatsApp Image 2025-12-07 at 09 51 03_f1979add](https://github.com/user-attachments/assets/a67aff50-ab34-4e8f-80c1-d8d5ed6867b1)
+(https://github.com/user-attachments/assets/3c97c15e-b04a-4d87-9efe-64464512b69c)
+(https://github.com/user-attachments/assets/7b437a65-dd61-4f15-9f2a-fe37709ae0f1)
+(https://github.com/user-attachments/assets/6b816330-16dc-4925-a96b-9a00827c2275)
+(https://github.com/user-attachments/assets/a4a101be-36a2-4d32-bb39-a4126f30dfe0)
+(https://github.com/user-attachments/assets/24d181b6-d9ae-4962-bb40-ea73f87f876f)
+(https://github.com/user-attachments/assets/685723de-fb73-4f9a-a686-888aa4591a33)
+(https://github.com/user-attachments/assets/b5b46f8e-eb26-4bca-8b35-f6a934c8fd37)
+(https://github.com/user-attachments/assets/8cdf39db-6502-40cf-a8de-c779c523082c)
+(https://github.com/user-attachments/assets/a67aff50-ab34-4e8f-80c1-d8d5ed6867b1)
 
 ## Tech Stack
 
