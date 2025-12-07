@@ -80,15 +80,16 @@ The alert is forwarded to Police + Nearby Ambulance + Hospitals.
 User gets a 10-second countdown to cancel false SOS.
 
 ## 📸 App Screenshots :
-(https://github.com/user-attachments/assets/3c97c15e-b04a-4d87-9efe-64464512b69c)
-(https://github.com/user-attachments/assets/7b437a65-dd61-4f15-9f2a-fe37709ae0f1)
-(https://github.com/user-attachments/assets/6b816330-16dc-4925-a96b-9a00827c2275)
-(https://github.com/user-attachments/assets/a4a101be-36a2-4d32-bb39-a4126f30dfe0)
-(https://github.com/user-attachments/assets/24d181b6-d9ae-4962-bb40-ea73f87f876f)
-(https://github.com/user-attachments/assets/685723de-fb73-4f9a-a686-888aa4591a33)
-(https://github.com/user-attachments/assets/b5b46f8e-eb26-4bca-8b35-f6a934c8fd37)
-(https://github.com/user-attachments/assets/8cdf39db-6502-40cf-a8de-c779c523082c)
-(https://github.com/user-attachments/assets/a67aff50-ab34-4e8f-80c1-d8d5ed6867b1)
+![WhatsApp Image 2025-12-07 at 09 51 00_d4d71135](https://github.com/user-attachments/assets/e93ddc5f-d3a8-40f9-aca7-e250f079088b)
+![WhatsApp Image 2025-12-07 at 09 51 00_e91503f3](https://github.com/user-attachments![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/c119ce1b-a8f2-4351-8201-e3808f8ad068)
+/assets/70fc73cb-c813-49b0-89e7-0127b36c23c3)
+![WhatsApp Image 2025-12-07 at 09 51 01_8e641e4d](https://github.com/user-attachments/assets/f3cacad2-c138-48fe-abc7-04feff5006e2)
+
+![WhatsApp Image 2025-12-07 at 09 51 02_9dc183b6](https://github.com/user-attachments/assets/fe75a116-b2b7-47c1-8305-bfb7e4ac4d38)
+![WhatsApp Image 2025-12-07 at 09 51 02_2caf9377](https://github.com/user-attachments/assets/afaf10b8-71a5-4d35-90e3-30ae05884c62)
+![WhatsApp Image 2025-12-07 at 09 51 02_8c03de2c](https://github.com/user-attachments/assets/0d3b2efc-3030-45db-9a0f-fc84540bff2a)
+![WhatsApp Image 2025-12-07 at 09 51 03_baba867d](https://github.com/user-attachments/assets/d2d88789-64ed-4232-93ab-1d4f019bee94)
+![WhatsApp Image 2025-12-07 at 09 51 03_f1979add](https://github.com/user-attachments/assets/4d86ec0b-01be-4cc7-a810-7e75b4287951)
 
 ## Tech Stack
 
